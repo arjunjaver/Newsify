@@ -21,7 +21,8 @@ const News = (props) => {
     props.setProgress(10);
     setLoading(true);
   
-    const url = `http://localhost:5000/news?category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
+    const url = `${process.env.REACT_APP_BACKEND_URL}/news?category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
+
   
     try {
       let data = await fetch(url);
@@ -58,7 +59,8 @@ const News = (props) => {
       setPage(page + 1);
       setLoading(true);
     
-      const url = `http://localhost:5000/news?category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
+      const url = `${process.env.REACT_APP_BACKEND_URL}/news?category=${props.category}&page=${page}&pageSize=${props.pageSize}`;
+
     
       try {
         let data = await fetch(url);
